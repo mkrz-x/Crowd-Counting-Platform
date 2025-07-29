@@ -1,3 +1,16 @@
+import os
+import sys
+
+# Set OpenCV to use headless mode
+os.environ['OPENCV_VIDEOIO_PRIORITY_MSMF'] = '0'
+
+try:
+    import cv2
+    print(f"OpenCV version: {cv2.__version__}")
+except ImportError as e:
+    print(f"Failed to import OpenCV: {e}")
+    sys.exit(1)
+
 from flask import Flask, render_template, Response
 from camera import VideoCamera
 import cv2
